@@ -3,7 +3,9 @@
     <div>{{name}}</div>
     <sun_search />
     <sun_main />
-
+    <mt-button type="default">default</mt-button>
+    <mt-button type="primary">primary</mt-button>
+    <mt-button type="danger" @click="sunToast">danger</mt-button>
   </div>
 </template>
 
@@ -11,12 +13,21 @@
 
 import sun_main from "./components/sun_main.vue"
 import sun_search from "./components/sun_search.vue"
-
+import { Toast } from 'mint-ui';
 export default {
   name: 'App',
   data(){
     return {
-      "name":""
+      "name":"",
+    }
+  },
+  methods:{
+    sunToast(){
+      Toast({
+        message: 'Upload Complete',
+        position: 'bottom',
+        duration: 1000
+      });
     }
   },
   components: {
